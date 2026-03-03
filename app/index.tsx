@@ -5,8 +5,9 @@ import { Link, Stack } from 'expo-router';
 import { MoonStarIcon, StarIcon, SunIcon } from 'lucide-react-native';
 import { useColorScheme } from 'nativewind';
 import * as React from 'react';
-import { Image, type ImageStyle, View ,ScrollView} from 'react-native';
+import { Image, type ImageStyle, View, ScrollView } from 'react-native';
 import { SignInForm } from '@/components/sign-in-form';
+import { Input } from '@/components/ui/input';
 
 const LOGO = {
   light: require('@/assets/images/react-native-reusables-light.png'),
@@ -31,13 +32,15 @@ export default function Screen() {
     <>
       <Stack.Screen options={SCREEN_OPTIONS} />
       <ScrollView
-      keyboardShouldPersistTaps="handled"
-      contentContainerClassName="sm:flex-1 items-center justify-center p-4 py-8 sm:py-4 sm:p-6 mt-safe"
-      keyboardDismissMode="interactive">
-      <View className="w-full max-w-sm">
-        <SignInForm />
-      </View>
-    </ScrollView>
+        keyboardShouldPersistTaps="handled"
+        contentContainerClassName="sm:flex-1 items-center justify-center p-4 py-8 sm:py-4 sm:p-6 mt-safe"
+        keyboardDismissMode="interactive">
+        <View className="w-full max-w-sm">
+          <SignInForm />
+
+          <Input placeholder="Enter your name" className="h-8" />
+        </View>
+      </ScrollView>
     </>
   );
 }
